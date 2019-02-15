@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +15,8 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
-@ComponentScan(basePackages= {"org.zerock.mapper"})
+@ComponentScan(basePackages= {"org.zerock.sample"})
+@MapperScan(basePackages= {"org.zerock.mapper"})
 public class RootConfig {
 	
 	//RootConfig 에서 @ComponentScan 어노테이션을 이용해서 처리 할 수 있다 
