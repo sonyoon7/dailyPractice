@@ -1,8 +1,12 @@
 package org.zerock.config;
 
+import javax.servlet.Filter;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration.Dynamic;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 @Configuration
@@ -31,6 +35,18 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 		registration.setInitParameter("thorwExceptionIfNoHandlerFound", "true");
 		
 	}
+
+	@Override
+	protected Filter[] getServletFilters() {
+
+		CharacterEncodingFilter characterEncodingFilter= new CharacterEncodingFilter();
+		characterEncodingFilter.setEncoding("UTF-8");
+		characterEncodingFilter.setForceEncoding(true);
+		return super.getServletFilters();
+	}
+
+
+	
 	
 	
 	

@@ -15,7 +15,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
-@ComponentScan(basePackages= {"org.zerock.sample"})
+@ComponentScan(basePackages= {"org.zerock.service","org.zerock.sample"})
 @MapperScan(basePackages= {"org.zerock.mapper"})
 public class RootConfig {
 	
@@ -29,7 +29,7 @@ public class RootConfig {
 //		hikariConfig.setUsername("book_ex");
 //		hikariConfig.setPassword("book_ex");
 		hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
-		hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://127.0.0.1:3306/book_ex?useSSL=false");
+		hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://127.0.0.1:3306/book_ex?useSSL=false&characterEncoding=UTF-8&useUnicode=true");
 		hikariConfig.setUsername("yuni");
 		hikariConfig.setPassword("1234");
 		
@@ -44,6 +44,8 @@ public class RootConfig {
 		
 		return sqlSessionFactory.getObject();
 	}
+	
+	
 
 		
 }
