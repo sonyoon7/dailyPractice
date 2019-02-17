@@ -26,20 +26,26 @@ public class BoardController {
 	
 	@GetMapping("/list")  //리턴값없어도 알아서 view 페이지 이동...
 	public void list (Model model) {
-		log.info("나와라");
 		model.addAttribute("list", service.getList());
-		log.info("나와라2");
-		log.info(service.getList());
+		log.info("list");
 		
 		//return "/board/list";
 	}
 	
+	
 
+	@GetMapping("/register")
+	public String Getregister () {
+		
+		return "/board/register";
+	}
 	@PostMapping("/register")
 	public String register (BoardVO board, RedirectAttributes rttr) {
-		
+//		RedirectAttributes rttr
+//		rttr.addFlashAttribute() 은 일회성으로만 데이터를 전달 함 , 단 한 번 만 사용 
 		service.register(board);
-		rttr.addFlashAttribute("result", board.getBno());
+		rttr.addFlashAttribute("result", board);
+		log.info("register done");
 		return "redirect:/board/list";
 		
 	}

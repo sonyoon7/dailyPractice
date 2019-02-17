@@ -75,7 +75,15 @@
         <!-- /.container-fluid -->
 
      <jsp:include page="../includes/footer.jsp"></jsp:include>
+<script>
 
+		console.log('${result.writer}')
+		/* 뒤로가기 막기  */
+history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+        history.go(1);
+};
+</script>
 </body>
 
 </html>

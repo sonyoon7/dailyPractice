@@ -12,7 +12,7 @@ import org.zerock.domain.BoardVO;
 
 public interface BoardMapper {
 	
-	@Select("SELECT * from tbl_board where bno >0")
+	@Select("SELECT * from tbl_board where bno >0 order by bno desc")
 	public List<BoardVO> getList();
 	
 	@Insert("insert into tbl_board (title, content, writer)\r\n" + 

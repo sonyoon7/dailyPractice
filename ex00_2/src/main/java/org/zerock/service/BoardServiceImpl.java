@@ -22,7 +22,7 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public void register(BoardVO board) {
-		
+		mapper.insert(board);
 		
 	}
 
@@ -43,8 +43,6 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BoardVO> getList() {
-		
-		
 		return  mapper.getList();
 	}
 	

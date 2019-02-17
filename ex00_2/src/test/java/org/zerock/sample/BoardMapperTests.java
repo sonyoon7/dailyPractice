@@ -28,24 +28,24 @@ public class BoardMapperTests {
 //	
 //	}
 //	
-//	@Test
-//	public void test2() {
-//		BoardVO board = new BoardVO();
-//		
-//		board.setTitle("새로 작성 20190215");
-//		board.setContent("새로 작성하는 내용");
-//		board.setWriter("newbie");
-//		mapper.insert(board);
-//		
-//		log.info(board);
-//	
-//	}
-	
 	@Test
-	public void testRead() {
-		BoardVO board= mapper.read(264165);
+	public void test2() {
+		BoardVO board = new BoardVO();
+		
+		board.setTitle("새로 작성 20190217");
+		board.setContent("새로 작성하는 내용");
+		board.setWriter("newbie");
+		mapper.insert(board);
 		
 		log.info(board);
+	
 	}
+	
+//	@Test
+//	public void testRead() {
+//		BoardVO board= mapper.read(264165);
+//		
+//		log.info(board);
+//	}
 
 }
