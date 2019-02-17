@@ -1,5 +1,7 @@
 package org.zerock.controller;
 
+import java.util.HashMap;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -52,15 +54,23 @@ public class BoardController {
 	
 	
 	@GetMapping("/get")
-	public void get(@RequestParam("bno")Integer bno, Model model) {
+	public void get(@RequestParam(value="bno", required=false)Integer bno , Model model ) {
+		log.info("/get");
 		
 		model.addAttribute("board", service.get(bno));
+		
 	}
 	
-	
+	@GetMapping("/modify")
+	public void Getmodify (@RequestParam(value="bno", required=false)Integer bno ,Model model) {
+		model.addAttribute("board", service.get(bno));
+		log.info("modify... get");
+	}
 	
 	@PostMapping("/modify")
 	public String modify (BoardVO board, RedirectAttributes rttr) {
+		log.info("modify... post");
+		log.info(board.getWriter());
 		if(service.modify(board)) {
 			rttr.addFlashAttribute("result","success");
 			

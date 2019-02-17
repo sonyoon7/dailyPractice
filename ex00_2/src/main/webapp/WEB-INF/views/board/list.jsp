@@ -59,7 +59,8 @@
                   <c:forEach items="${list}" var="i">
                     <tr>
                       <td>${i.bno }</td>
-                      <td>${i.title }</td>
+                      <!-- target="_blank" 를 a 태그 속성에 추가 하면 새 창이 뜬다 -->
+                      <td><a href="/board/get?bno=${i.bno }" >${i.title }</a></td>
                       <td>${i.writer }</td>
                       <td><fmt:formatDate value="${i.regdate }" pattern="yyyy-MM-dd"/></td>
                     <%--   <td><fmt:formatDate value="${i.updatedate }" pattern="yyyy-MM-dd"/></td> --%>
@@ -77,7 +78,7 @@
      <jsp:include page="../includes/footer.jsp"></jsp:include>
 <script>
 
-		console.log('${result.writer}')
+		
 		/* 뒤로가기 막기  */
 history.pushState(null, null, location.href);
     window.onpopstate = function () {
