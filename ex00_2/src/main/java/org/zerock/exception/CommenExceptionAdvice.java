@@ -11,19 +11,29 @@ import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j;
 
 @ControllerAdvice
+@Log4j
 public class CommenExceptionAdvice {
 	
-//	@ExceptionHandler(Exception.class)
-//	public String except(Exception ex, Model model) {
-//		
-//		model.addAttribute("exception",ex);
-//		
-//		return "error_page";
-//		//Log.error("Exception......"+ex.getMessage());
-//	}
+	@ExceptionHandler(Exception.class)
+	public String except(Exception ex, Model model) {
+		
+		System.out.println("===========================");
+		log.warn("-------------------------------------");
+		
+		model.addAttribute("exception",ex);
+		
+		return "error_page";
+		//Log.error("Exception......"+ex.getMessage());
+	}
+	
 	@ExceptionHandler(NoHandlerFoundException.class)
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	public String handle404(NoHandlerFoundException ex) {
+		
+		
+		System.out.println("===========================");
+		log.warn("-------------------------------------");
+		
 		return "custom404";
 	}
 	

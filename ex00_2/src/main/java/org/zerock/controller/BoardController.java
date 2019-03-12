@@ -29,7 +29,9 @@ public class BoardController {
 	@GetMapping("/list")  //리턴값없어도 알아서 view 페이지 이동...
 	public void list (Model model) {
 		model.addAttribute("list", service.getList());
-		log.info("list");
+		log.info("list------------------------------");
+		
+		
 		
 		//return "/board/list";
 	}
